@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Azhlenee ❤️</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      color:white;
+    }
+
+    .container{
+      text-align:center;
+      padding:20px;
+    }
+
+    h1{
+      font-size:4rem;
+      margin-bottom:20px;
+    }
+
+    p{
+      font-size:1.2rem;
+      margin-bottom:30px;
+    }
+
+    button{
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      background:white;
+      color:#ff4f81;
+      font-size:1.1rem;
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.1);
+    }
+
+    #videoContainer{
+      display:none;
+      margin-top:30px;
+      animation:fadeIn 1s ease;
+    }
+
+    video{
+      width:80%;
+      max-width:700px;
+      border-radius:20px;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .heart{
+      position:absolute;
+      color:red;
+      animation:floatUp linear forwards;
+    }
+
+    @keyframes floatUp{
+      0%{
+        transform:translateY(100vh);
+        opacity:0;
+      }
+      100%{
+        transform:translateY(-10vh);
+        opacity:1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Hi Babii, Azhlene ko ❤️</h1>
+
+    <p>
+     Happy happy birthday Babii!
+      I made something special for you...
+    </p>
+
+    <button onclick="showVideo()">Open Surprise 💌</button>
+
+    <div id="videoContainer">
+     
+      <video id="azhat15" controls>
+        <source src="azhat15.MOV" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <script>
+    function showVideo(){
+      document.getElementById("videoContainer").style.display = "block";
+
+      const video = document.getElementById("azhat15");
+      video.play();
+    }
+
+    // floating hearts
+    function createHeart(){
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = (15 + Math.random() * 30) + "px";
+      heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
